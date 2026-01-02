@@ -5,177 +5,250 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dhanush Shankar H M | Data Analyst</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background: #0f172a;
       color: #e5e7eb;
       line-height: 1.6;
+      background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
     }
-    a { text-decoration: none; color: inherit; }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== HEADER / HERO ===== */
     header {
-      background: linear-gradient(135deg, #2563eb, #1e40af);
-      padding: 80px 20px;
-      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)),
+                  url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+      background-size: cover;
     }
-    header h1 {
-      font-size: 3rem;
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 60px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
       font-weight: 700;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 1.2rem;
-      opacity: 0.9;
+      color: #93c5fd;
     }
 
     nav {
       display: flex;
-      justify-content: center;
       gap: 25px;
-      background: #020617;
-      padding: 15px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
     }
+
     nav a {
-      color: #93c5fd;
+      color: #c7d2fe;
       font-weight: 500;
     }
-    nav a:hover { color: #fff; }
 
-    section {
-      padding: 70px 10%;
+    nav a:hover {
+      color: #ffffff;
     }
+
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .hero-title h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .hero-title p {
+      margin-top: 10px;
+      font-size: 1.3rem;
+      color: #93c5fd;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 80px 10%;
+      background: rgba(2, 6, 23, 0.85);
+    }
+
     section h2 {
-      font-size: 2.2rem;
-      margin-bottom: 25px;
+      font-size: 2.4rem;
+      margin-bottom: 30px;
       color: #60a5fa;
     }
 
+    /* ABOUT */
     .about p {
       max-width: 900px;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
+    /* PROJECTS */
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
     }
+
     .card {
       background: #020617;
       padding: 25px;
-      border-radius: 14px;
+      border-radius: 16px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .card:hover { transform: translateY(-6px); }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+    }
+
     .card h3 {
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       color: #bfdbfe;
     }
 
+    /* SKILLS */
     .skills {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 22px;
     }
+
     .skill {
       background: #020617;
       padding: 18px;
       text-align: center;
-      border-radius: 12px;
+      border-radius: 14px;
       font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
     }
 
+    /* CONTACT */
     .contact p {
-      margin-bottom: 12px;
-      font-size: 1.05rem;
+      margin-bottom: 14px;
+      font-size: 1.1rem;
     }
+
     .contact a {
       color: #60a5fa;
     }
 
+    /* FOOTER */
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px;
       background: #020617;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: #9ca3af;
+    }
+
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .hero-title h1 {
+        font-size: 2.6rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<header id="home">
-  <h1>Data Analyst</h1>
-  <p>Dhanush Shankar H M</p>
-</header>
-
-<nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#projects">Projects</a>
-  <a href="#skills">Skills</a>
-  <a href="#contact">Contact</a>
-</nav>
-
-<section id="about" class="about">
-  <h2>About Me</h2>
-  <p>
-    I am a passionate Data Analyst with strong skills in data cleaning, data modeling, visualization, and business insights. 
-    I work with tools like Excel, Power BI, SQL, Tableau, and Python to analyze large datasets and convert raw data into meaningful insights that help businesses make data-driven decisions.
-  </p>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
-    <div class="card">
-      <h3>Sales Analysis Dashboard</h3>
-      <p>Built an interactive Power BI dashboard to analyze sales trends, YoY growth, and category performance.</p>
+  <!-- HERO / HEADER -->
+  <header id="home">
+    <div class="top-bar">
+      <div class="logo">Dhanush Shankar H M</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="card">
-      <h3>Customer Segmentation</h3>
-      <p>Used SQL and Python to segment customers based on behavior and purchasing patterns.</p>
-    </div>
-    <div class="card">
-      <h3>HR Analytics</h3>
-      <p>Analyzed employee data to identify attrition trends and performance insights using Excel and Power BI.</p>
-    </div>
-    <div class="card">
-      <h3>Financial Performance Analysis</h3>
-      <p>Created Tableau dashboards to monitor revenue, profit margins, and KPIs.</p>
-    </div>
-  </div>
-</section>
 
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills">
-    <div class="skill">Excel</div>
-    <div class="skill">Power BI</div>
-    <div class="skill">SQL</div>
-    <div class="skill">Tableau</div>
-    <div class="skill">Python</div>
-    <div class="skill">Statistics</div>
-  </div>
-</section>
+    <div class="hero-title">
+      <h1>Data Analyst</h1>
+      <p>Turning Data into Business Insights</p>
+    </div>
+  </header>
 
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:dhanush@example.com">dhanush@example.com</a></p>
-  <p>Phone: +91-XXXXXXXXXX</p>
-  <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/yourlinkedin</a></p>
-</section>
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>
+      I am a dedicated Data Analyst with strong expertise in Excel, Power BI, SQL, Tableau, Python, and Statistics. 
+      I specialize in data cleaning, analysis, visualization, and storytelling to help organizations make data-driven decisions.
+    </p>
+  </section>
 
-<footer>
-  © 2026 Dhanush Shankar H M | Data Analyst Portfolio
-</footer>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Sales Analysis Dashboard</h3>
+        <p>Interactive Power BI dashboard analyzing sales trends, YoY growth, and regional performance.</p>
+      </div>
+      <div class="card">
+        <h3>Customer Segmentation</h3>
+        <p>SQL and Python-based customer segmentation using behavioral and transactional data.</p>
+      </div>
+      <div class="card">
+        <h3>HR Analytics</h3>
+        <p>Employee attrition and performance analysis using Excel and Power BI.</p>
+      </div>
+      <div class="card">
+        <h3>Financial Performance Analysis</h3>
+        <p>Tableau dashboards tracking revenue, profitability, and key financial KPIs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill">Excel</div>
+      <div class="skill">Power BI</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Tableau</div>
+      <div class="skill">Python</div>
+      <div class="skill">Statistics</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:dhanush@example.com">dhanush@example.com</a></p>
+    <p>Phone: +91-XXXXXXXXXX</p>
+    <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/yourlinkedin</a></p>
+  </section>
+
+  <footer>
+    © 2026 Dhanush Shankar H M | Data Analyst Portfolio
+  </footer>
 
 </body>
 </html>
