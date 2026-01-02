@@ -1,273 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhanush Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhanush Shankar H M | Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset and base */
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Roboto', sans-serif; }
-    body { overflow-x: hidden; background:#f5f5f5; color:#333; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
 
-    /* Horizontal scroll container */
-    .scroll-container {
-      display: flex;
-      scroll-snap-type: x mandatory;
-      overflow-x: auto;
-      height: 100vh;
-      scroll-behavior: smooth;
+    header {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      padding: 80px 20px;
+      text-align: center;
     }
-    .section {
-      min-width: 100vw;
-      height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      padding: 2rem;
-      transition: transform 1s ease, opacity 1s ease;
-      opacity: 0;
-      transform: translateY(50px);
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
     }
-    .section.active {
-      opacity: 1;
-      transform: translateY(0);
+    header p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      opacity: 0.9;
     }
 
-    /* Navbar */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(255,255,255,0.9);
       display: flex;
       justify-content: center;
-      padding: 1rem 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      gap: 25px;
+      background: #020617;
+      padding: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #333;
-      font-weight: 700;
-      position: relative;
+      color: #93c5fd;
+      font-weight: 500;
     }
-    nav a.active::after {
-      content:'';
-      position:absolute;
-      width:100%;
-      height:2px;
-      background:#007bff;
-      bottom:-4px;
-      left:0;
+    nav a:hover { color: #fff; }
+
+    section {
+      padding: 70px 10%;
+    }
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 25px;
+      color: #60a5fa;
     }
 
-    /* Sections styles */
-    #home { background:#007bff; color:white; }
-    #about { background:#ff6b6b; color:white; }
-    #skills { background:#feca57; color:#333; }
-    #projects { background:#1dd1a1; color:white; }
-    #contact { background:#576574; color:white; }
-
-    /* Profile Section */
-    .profile img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-20px); }
+    .about p {
+      max-width: 900px;
+      font-size: 1.05rem;
     }
 
-    /* Skills Section */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #020617;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-6px); }
+    .card h3 {
+      margin-bottom: 10px;
+      color: #bfdbfe;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
     .skill {
-      width: 300px;
-      background:#ddd;
-      border-radius: 20px;
-      margin: 1rem 0;
-      overflow: hidden;
-    }
-    .skill-bar {
-      height: 20px;
-      width: 0;
-      background:#007bff;
-      border-radius: 20px;
-      transition: width 2s ease;
+      background: #020617;
+      padding: 18px;
+      text-align: center;
+      border-radius: 12px;
+      font-weight: 600;
     }
 
-    /* Projects Section */
-    .projects-container {
-      display:flex;
-      gap:2rem;
-      overflow-x:auto;
-      padding-bottom: 2rem;
+    .contact p {
+      margin-bottom: 12px;
+      font-size: 1.05rem;
     }
-    .project-card {
-      min-width:250px;
-      background:white;
-      border-radius: 10px;
-      padding:1rem;
-      box-shadow:0 5px 15px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor:pointer;
-    }
-    .project-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow:0 10px 25px rgba(0,0,0,0.3);
-    }
-
-    /* Contact Section */
     .contact a {
-      display:inline-block;
-      margin:0.5rem;
-      padding:0.5rem 1rem;
-      background:white;
-      color:#333;
-      border-radius:5px;
-      text-decoration:none;
-      font-weight:bold;
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .contact a:hover {
-      background:#007bff;
-      color:white;
-      transform: scale(1.1);
+      color: #60a5fa;
     }
 
-    /* Scrollbar style */
-    .scroll-container::-webkit-scrollbar {
-      height: 10px;
-    }
-    .scroll-container::-webkit-scrollbar-thumb {
-      background: #007bff;
-      border-radius: 5px;
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #020617;
+      font-size: 0.9rem;
+      color: #9ca3af;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <a href="#home" class="nav-link active">Home</a>
-    <a href="#about" class="nav-link">About</a>
-    <a href="#skills" class="nav-link">Skills</a>
-    <a href="#projects" class="nav-link">Projects</a>
-    <a href="#contact" class="nav-link">Contact</a>
-  </nav>
+<header id="home">
+  <h1>Data Analyst</h1>
+  <p>Dhanush Shankar H M</p>
+</header>
 
-  <!-- Horizontal Scroll Container -->
-  <div class="scroll-container">
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <!-- Home Section -->
-    <section id="home" class="section active">
-      <div class="profile">
-        <img src="https://via.placeholder.com/200" alt="Profile Image">
-        <h1>Dhanush Shankar H M</h1>
-        <h3>Data Analyst</h3>
-      </div>
-    </section>
+<section id="about" class="about">
+  <h2>About Me</h2>
+  <p>
+    I am a passionate Data Analyst with strong skills in data cleaning, data modeling, visualization, and business insights. 
+    I work with tools like Excel, Power BI, SQL, Tableau, and Python to analyze large datasets and convert raw data into meaningful insights that help businesses make data-driven decisions.
+  </p>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-      <h2>About Me</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel sem vitae justo sodales.</p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-      <h2>Skills</h2>
-      <div class="skill">
-        <div class="skill-bar" data-width="90%"></div>
-      </div>
-      <div class="skill">
-        <div class="skill-bar" data-width="75%"></div>
-      </div>
-      <div class="skill">
-        <div class="skill-bar" data-width="60%"></div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-      <h2>Projects</h2>
-      <div class="projects-container">
-        <div class="project-card">
-          <h3>Project 1</h3>
-          <p>Description of project 1</p>
-        </div>
-        <div class="project-card">
-          <h3>Project 2</h3>
-          <p>Description of project 2</p>
-        </div>
-        <div class="project-card">
-          <h3>Project 3</h3>
-          <p>Description of project 3</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-      <h2>Contact Me</h2>
-      <div class="contact">
-        <a href="#">Email</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Portfolio</a>
-      </div>
-    </section>
-
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3>Sales Analysis Dashboard</h3>
+      <p>Built an interactive Power BI dashboard to analyze sales trends, YoY growth, and category performance.</p>
+    </div>
+    <div class="card">
+      <h3>Customer Segmentation</h3>
+      <p>Used SQL and Python to segment customers based on behavior and purchasing patterns.</p>
+    </div>
+    <div class="card">
+      <h3>HR Analytics</h3>
+      <p>Analyzed employee data to identify attrition trends and performance insights using Excel and Power BI.</p>
+    </div>
+    <div class="card">
+      <h3>Financial Performance Analysis</h3>
+      <p>Created Tableau dashboards to monitor revenue, profit margins, and KPIs.</p>
+    </div>
   </div>
+</section>
 
-  <!-- JavaScript for animations -->
-  <script>
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const skillBars = document.querySelectorAll('.skill-bar');
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div class="skill">Excel</div>
+    <div class="skill">Power BI</div>
+    <div class="skill">SQL</div>
+    <div class="skill">Tableau</div>
+    <div class="skill">Python</div>
+    <div class="skill">Statistics</div>
+  </div>
+</section>
 
-    // Intersection Observer for sections
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('active');
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:dhanush@example.com">dhanush@example.com</a></p>
+  <p>Phone: +91-XXXXXXXXXX</p>
+  <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/yourlinkedin</a></p>
+</section>
 
-          // Animate skill bars
-          if(entry.target.id === 'skills'){
-            skillBars.forEach(bar => {
-              bar.style.width = bar.dataset.width;
-            });
-          }
-        }
-      });
-    }, { threshold: 0.5 });
-
-    sections.forEach(section => observer.observe(section));
-
-    // Update navbar active link
-    const scrollContainer = document.querySelector('.scroll-container');
-    scrollContainer.addEventListener('scroll', () => {
-      let index = Math.round(scrollContainer.scrollLeft / window.innerWidth);
-      navLinks.forEach(link => link.classList.remove('active'));
-      navLinks[index]?.classList.add('active');
-    });
-
-    // Smooth scroll on nav click
-    navLinks.forEach((link, i) => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        scrollContainer.scrollTo({ left: i*window.innerWidth, behavior: 'smooth' });
-      });
-    });
-  </script>
+<footer>
+  © 2026 Dhanush Shankar H M | Data Analyst Portfolio
+</footer>
 
 </body>
 </html>
