@@ -17,7 +17,7 @@
       font-family: 'Poppins', sans-serif;
       color: #e5e7eb;
       line-height: 1.6;
-      background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background: url("c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-02 130753.png") no-repeat center center fixed;
       background-size: cover;
     }
 
@@ -31,7 +31,7 @@
       position: relative;
       min-height: 100vh;
       background: linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)),
-                  url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+                  url('c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-02 130753.png') no-repeat center center;
       background-size: cover;
     }
 
@@ -45,7 +45,7 @@
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #93c5fd;
+      color: hsl(280, 20%, 97%);
     }
 
     nav {
@@ -109,8 +109,8 @@
 
     .card {
       background: #020617;
-      padding: 25px;
-      border-radius: 16px;
+      padding: 10px;
+      border-radius: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.4);
       transition: transform 0.3s, box-shadow 0.3s;
     }
@@ -173,24 +173,41 @@
   </style>
 </head>
 <body>
+<!-- Image Modal -->
+<div id="imageModal" style="display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+  <span style="position:absolute;top:20px;right:40px;font-size:40px;color:white;cursor:pointer;" onclick="closeImage()">&times;</span>
+  <img id="modalImg" style="max-width:90%;max-height:90%;border-radius:10px;">
+</div>
 
   <!-- HERO / HEADER -->
   <header id="home">
-    <div class="top-bar">
-      <div class="logo">Dhanush Shankar H M</div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- Background Video -->
+  <video autoplay muted loop id="bgVideo" style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+    <source src="c:\Users\Deeks\Videos\Screen Recordings\Screen Recording 2026-01-03 103307.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <!-- Top Bar: Logo + Name (Left) / Nav (Right) -->
+  <div class="top-bar">
+  <img src="c:\Users\Deeks\Downloads\Gemini_Generated_Image_36bxq636bxq636bx.png" alt="Dhanush Shankar Logo" style="height:200px;cursor:pointer;" onclick="openImage(this.src)">
+  <div>
+  <div class="logo">Dhanush Shankar H M <br> Data Analyst</div>
     </div>
 
-    <div class="hero-title">
-      <h1>Data Analyst</h1>
-      <p>Turning Data into Business Insights</p>
-    </div>
-  </header>
+    <!-- Right side: Navigation -->
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Hero Section Text -->
+  <div class="hero-title">
+    <h1>Data Analyst</h1>
+    <p>Turning Data into Business Insights</p>
+  </div>
+</header>
 
   <!-- ABOUT -->
   <section id="about" class="about">
@@ -206,49 +223,89 @@
     <h2>Projects</h2>
     <div class="projects">
       <div class="card">
+        <a href="C:\Users\Deeks\Desktop\New folder\d1\d\Global E Commerce dashboard.pbix" target="_blank" class="card">
         <h3>Sales Analysis Dashboard</h3>
-        <p>Interactive Power BI dashboard analyzing sales trends, YoY growth, and regional performance.</p>
+        <p>Interactive Power BI dashboard analyzing sales trends, YoY     growth,and regional performance.</p>
+        </a>
       </div>
+     
       <div class="card">
-        <h3>Customer Segmentation</h3>
-        <p>SQL and Python-based customer segmentation using behavioral and transactional data.</p>
-      </div>
-      <div class="card">
+            <a href="c:\Users\Deeks\Desktop\New folder\d1\attrition projecgt.pbix"target="_blank" class="card">
         <h3>HR Analytics</h3>
-        <p>Employee attrition and performance analysis using Excel and Power BI.</p>
+        <p>                 Employee attrition and performance analysis using  Power BI.</p>
+        </a>
       </div>
-      <div class="card">
-        <h3>Financial Performance Analysis</h3>
-        <p>Tableau dashboards tracking revenue, profitability, and key financial KPIs.</p>
-      </div>
+     
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="skill">Excel</div>
-      <div class="skill">Power BI</div>
-      <div class="skill">SQL</div>
-      <div class="skill">Tableau</div>
-      <div class="skill">Python</div>
-      <div class="skill">Statistics</div>
+  <h2>Skills</h2>
+
+  <div class="skills">
+
+    <div class="skill">
+      <h3>Excel</h3>
+      <p>Data Cleaning, Pivot Tables, Advanced Formulas, Power Query, Dashboard Creation</p>
+      <img src= "c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-03 093233.png" class="skill-icon" onclick="openImage(this.src)" style="width:60px;cursor:pointer;" alt="Excel Icon">
     </div>
-  </section>
+
+    <div class="skill">
+      <h3>Power BI</h3>
+      <p>Data Modeling, DAX, Interactive Dashboards</p>
+      <img src="c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-02 130753.png" class="skill-icon" onclick="openImage(this.src)" style="width:60px;cursor:pointer;" alt="Power BI Icon">
+    </div>
+
+    <div class="skill">
+      <h3>SQL</h3>
+      <p>Data Extraction, Joins, Aggregations, Query Optimization</p>
+      <img src="c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-03 093355.png" class="skill-icon" onclick="openImage(this.src)" style="width:60px;cursor:pointer;" alt="SQL Icon">
+    </div>
+
+    <div class="skill">
+      <h3>Tableau</h3>
+      <p>Data Visualization, Interactive Dashboards</p>
+      <img src="c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-03 093654.png" class="skill-icon" onclick="openImage(this.src)" style="width:60px;cursor:pointer;" alt="Tableau Icon">
+    </div>
+
+    <div class="skill">
+      <h3>Python</h3>
+      <p>Data Analysis, Automation, EDA, Data Visualization</p>
+      <img src="c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-03 100043.png" class="skill-icon" onclick="openImage(this.src)" style="width:60px;cursor:pointer;" alt="Python Icon">
+    </div>
+
+    <div class="skill">
+      <h3>Statistics</h3>
+      <p>Data Interpretation, Trend Analysis, Hypothesis Testing</p>
+      <img src="c:\Users\Deeks\Pictures\Screenshots\Screenshot 2026-01-03 100200.png" class="skill-icon" onclick="openImage(this.src)" style="width:60px;cursor:pointer;" alt="Statistics Icon">
+    </div>
+
+  </div>
+</section>
+
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:dhanush@example.com">dhanush@example.com</a></p>
+    <p>Email: <a href="mailto:dhanush@example.com">dhanushshankar025@gmail.com</a></p>
     <p>Phone: +91-XXXXXXXXXX</p>
-    <p>GitHub: <a href="https://github.com/yourgithub" target="_blank">github.com/yourgithub</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/yourlinkedin" target="_blank">linkedin.com/in/yourlinkedin</a></p>
+    <p>GitHub: <a href="https://github.com/dhanushshankar025-cpu" target="_blank">"dhanushshankar025-cpu"></a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/dhshankar9" target="_blank">linkedin.com/in/"dhshankar9"</a></p>
   </section>
 
   <footer>
     © 2026 Dhanush Shankar H M | Data Analyst Portfolio
   </footer>
+<script>
+  function openImage(src){
+    document.getElementById('modalImg').src = src;
+    document.getElementById('imageModal').style.display = 'flex';
+  }
+  function closeImage(){
+    document.getElementById('imageModal').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
